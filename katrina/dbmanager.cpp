@@ -31,6 +31,7 @@ bool DbManager::getBars()
 
     query.prepare("SELECT * from bar WHERE (mydate BETWEEN '2014-01-01 00:00:00' AND '2014-01-03 00:00:00') and strftime('%M:%S',mydate)  = '00:00'");
     // SELECT * from bar WHERE (mydate BETWEEN '2014-01-01 00:00:00' AND '2014-01-03 00:00:00') and strftime('%H:%M:%S',mydate)  = '01:00:00';
+    //query.prepare("SELECT * from bar");
 
     if(query.exec())
     {
@@ -47,7 +48,7 @@ bool DbManager::getBars()
     }
     else
     {
-        qDebug() << "addBar error:  ";
+        qDebug() << "getBars error:  ";
     }
 
     return success;
@@ -84,7 +85,7 @@ bool DbManager::getBars(QDateTime startDate, QDateTime endDate, std::list<bar> *
     }
     else
     {
-        qDebug() << "addBar error:  ";
+        qDebug() << "getBars error:  ";
     }
 
     return success;

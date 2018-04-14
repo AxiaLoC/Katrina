@@ -40,8 +40,12 @@ void MainWindow::handleTesterButton()
     //ui->textBrowser->setText(QString("Hai vinto EUR:") + QString::number(myTrade.getGain(), 'f', 2) + "/n");
     //ui->textBrowser->setText(QString("Hai vinto EUR:") + QString::number(myTrade.isWin()) + "/n");
 
-    DbManager mydatabaseManager("C:/Users/noteC/Desktop/myMemory.db");
+    //DbManager mydatabaseManager("C:/Users/AxiaGame/Desktop/myMemory.db");
+    DbManager mydatabaseManager( QCoreApplication::applicationDirPath() + "/myMemory.db");
     mydatabaseManager.getBars();
+
+
+    //ui->textBrowser->setText(ui->textBrowser->toPlainText() + QCoreApplication::applicationDirPath());
 
 }
 

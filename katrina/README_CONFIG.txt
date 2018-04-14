@@ -1,0 +1,1 @@
+Put myMemory.db in exe folder
