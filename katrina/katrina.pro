@@ -28,18 +28,18 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     bar.cpp \
-    barcollector.cpp \
     dbmanager.cpp \
     loader.cpp \
-    trade.cpp
+    trade.cpp \
+    tradecollector.cpp
 
 HEADERS += \
         mainwindow.h \
     bar.h \
-    barcollector.h \
     dbmanager.h \
     loader.h \
-    trade.h
+    trade.h \
+    tradecollector.h
 
 FORMS += \
         mainwindow.ui

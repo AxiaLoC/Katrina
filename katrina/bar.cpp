@@ -53,40 +53,19 @@ void bar::addPreviousBar(bar ibar)
     }
 }
 
-float bar::getOpen()
-{
-    return this->open;
-}
+float bar::getOpen(){return this->open;}
 
-float bar::getClose()
-{
-    return this->close;
-}
+float bar::getClose(){return this->close;}
 
-float bar::getMin()
-{
-    return this->min;
-}
+float bar::getMin(){return this->min;}
 
-float bar::getMax()
-{
-    return this->max;
-}
+float bar::getMax(){return this->max;}
 
-float bar::getVolume()
-{
-    return this->volume;
-}
+float bar::getVolume(){return this->volume;}
 
-QDateTime bar::getMydate()
-{
-    return this->mydate;
-}
+QDateTime bar::getMydate(){return this->mydate;}
 
-std::string bar::getSymbol()
-{
-    return this->symbol;
-}
+std::string bar::getSymbol(){return this->symbol;}
 
 float bar::round(float var)
 {

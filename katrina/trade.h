@@ -3,10 +3,6 @@
 
 #include <string>
 
-#define DUMMY_STATE 0
-#define OPEN_STATE 1
-#define CLOSE_STATE 2
-
 class trade
 {
 private:
@@ -18,6 +14,7 @@ private:
     std::string symbol;
 
 public:
+    enum tradeState:int { DUMMY, OPEN, CLOSE};
     trade();
     trade(std::string symbol, float ivolume, float ienter);
     trade(std::string symbol, float ivolume, float ienter, float iexit);
@@ -25,6 +22,9 @@ public:
     void closeTrade(float iexit);
     float getGain();
     bool isWin();
+    float getEnter();
+    float getExit();
+
 };
 
 #endif // TRADE_H
