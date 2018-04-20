@@ -16,6 +16,7 @@ loader::loader(QString filepath)
 
 }
 
+
 void loader::dukascopyLoadData()
 {
     #define DATE_POSITION 0

@@ -9,6 +9,7 @@ tradecollector::tradecollector()
 
 void tradecollector::addTrade(trade iTrade){myTrades.insert(myTradesIterator, iTrade);}
 
+
 void tradecollector::printMyTrades()
 {
     std::list<trade>::iterator myTradesIteratorLocal;
@@ -16,6 +17,7 @@ void tradecollector::printMyTrades()
     for (myTradesIteratorLocal=myTrades.begin(); myTradesIteratorLocal!=myTrades.end(); ++myTradesIteratorLocal)
        qDebug() << myTradesIteratorLocal->getGain();
 }
+
 
 float tradecollector::getTotalGain()
 {
@@ -27,6 +29,7 @@ float tradecollector::getTotalGain()
 
     return myGain;
 }
+
 
 float tradecollector::getWinPercentage()
 {
@@ -49,6 +52,7 @@ float tradecollector::getWinPercentage()
     return rate;
 }
 
+
 float tradecollector::getMaxLoss()
 {
     std::list<trade>::iterator myTradesIteratorLocal;
@@ -65,6 +69,7 @@ float tradecollector::getMaxLoss()
     return maxLoss;
 }
 
+
 float tradecollector::getMaxGain()
 {
     std::list<trade>::iterator myTradesIteratorLocal;
@@ -80,6 +85,7 @@ float tradecollector::getMaxGain()
 
     return maxGain;
 }
+
 
 float tradecollector::getDrawDawn()
 {

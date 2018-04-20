@@ -5,6 +5,7 @@ tester::tester()
     myLogFilePtr = new writerToFile(testerLogFile);
 }
 
+
 tester::~tester()
 {
     delete myLogFilePtr;
@@ -16,18 +17,12 @@ void tester::execute()
 
 
     myLogFilePtr->write("Tester Execution");
-
-    //std::string symbol, float ivolume, float ienter, float iexit
-    //trade myTrade("AX",10000,1.2,1.1);
-    //ui->textBrowser->setText(QString("Hai vinto EUR:") + QString::number(myTrade.getGain(), 'f', 2) + "/n");
-    //ui->textBrowser->setText(QString("Hai vinto EUR:") + QString::number(myTrade.isWin()) + "/n");
-    //DbManager mydatabaseManager("C:/Users/AxiaGame/Desktop/myMemory.db");
-    //DbManager mydatabaseManager( QCoreApplication::applicationDirPath() + "/myMemory.db");
-    //mydatabaseManager.getBars();
+    myLogFilePtr->clear();
 
     //this->writeToFile();
     //this->getBars();
     //this->getBarsLimited();
+    //this->getSixMonthBar(180);
 
 
 }
@@ -55,13 +50,36 @@ void tester::getBarsLimited()
     QDateTime endDate = QDateTime::fromString(endTime,fmt);
 
     std::list<bar> myBarCollector;
-    mydatabaseManager.getBars(startDate, endDate, myBarCollector, mydatabaseManager.typeGetBar::HOUR);
+
+    mydatabaseManager.getBars(startDate, endDate, myBarCollector, mydatabaseManager.typeGetBar::HOUR, mydatabaseManager.typeGetBarFilter::YES);
 
     std::list<bar>::iterator myBarCollectorIterator;
 
     for (myBarCollectorIterator=myBarCollector.begin(); myBarCollectorIterator!=myBarCollector.end(); ++myBarCollectorIterator)
-       myLogFilePtr->write(myBarCollectorIterator->getMydate().toString("dd.MM.yyyy hh:mm:ss.zzz"));
+    {
+       QString daStampare;
+       daStampare = myBarCollectorIterator->getMydate().toString("dd.MM.yyyy hh:mm:ss.zzz") + " " + QString::number(myBarCollectorIterator->getVolume());
+       myLogFilePtr->write(daStampare);
+    }
 
 
+
+}
+
+void tester::getSixMonthBar(int nDay)
+{
+    DbManager mydatabaseManager( QCoreApplication::applicationDirPath() + "/myMemory.db");
+
+    std::list<bar> myBarCollector;
+    std::list<bar>::iterator myBarCollectorIterator;
+
+    mydatabaseManager.getBarsByDay(nDay, myBarCollector, mydatabaseManager.typeGetBar::HOUR, mydatabaseManager.typeGetBarFilter::YES);
+
+    for (myBarCollectorIterator=myBarCollector.begin(); myBarCollectorIterator!=myBarCollector.end(); ++myBarCollectorIterator)
+    {
+       QString daStampare;
+       daStampare = myBarCollectorIterator->getMydate().toString("dd.MM.yyyy hh:mm:ss.zzz") + " " + QString::number(myBarCollectorIterator->getVolume());
+       myLogFilePtr->write(daStampare);
+    }
 
 }

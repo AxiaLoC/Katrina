@@ -12,6 +12,7 @@ bar::bar(QString isymbol, float iopen, float imin, float imax, float iclose, flo
 
 }
 
+
 void bar::addFollowBar(bar ibar)
 {
 
@@ -33,6 +34,7 @@ void bar::addFollowBar(bar ibar)
     }
 }
 
+
 void bar::addPreviousBar(bar ibar)
 {
     if(ibar.getSymbol() == this->symbol)
@@ -53,19 +55,27 @@ void bar::addPreviousBar(bar ibar)
     }
 }
 
+
 float bar::getOpen(){return this->open;}
+
 
 float bar::getClose(){return this->close;}
 
+
 float bar::getMin(){return this->min;}
+
 
 float bar::getMax(){return this->max;}
 
+
 float bar::getVolume(){return this->volume;}
+
 
 QDateTime bar::getMydate(){return this->mydate;}
 
+
 QString bar::getSymbol(){return this->symbol;}
+
 
 float bar::round(float var)
 {

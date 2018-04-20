@@ -16,9 +16,6 @@ DbManager::DbManager(const QString& path)
 }
 
 
-// Cerca solo le ore tra una data e un'altra
-// SELECT * from bar WHERE (mydate BETWEEN '2014-01-01 00:00:00' AND '2014-01-03 00:00:00') AND mydate  regexp (':00:00')
-
 bool DbManager::getBars()
 {
     std::list<bar> returnedBarCollector;
@@ -55,8 +52,10 @@ bool DbManager::getBars()
 
 }
 
-bool DbManager::getBars(QDateTime startDate, QDateTime endDate, std::list<bar> &barCollector, typeGetBar iType)
+
+bool DbManager::getBars(QDateTime startDate, QDateTime endDate, std::list<bar> &barCollector, typeGetBar iType, typeGetBarFilter iFilter = typeGetBarFilter::NO )
 {
+
     QDateTime mydate;
 
     bool success = false;
@@ -87,11 +86,9 @@ bool DbManager::getBars(QDateTime startDate, QDateTime endDate, std::list<bar> &
 
             bar resBar("AAA", open, min, max, close, volume, mydatetime);
 
-            //qDebug() << name << " " << open << " " << volume << mydatetime.toString();
-            //bar(std::string isymbol, float iopen, float imin, float imax, float iclose, float ivolume, QDateTime imydate);
-            //qDebug() << resBar.getVolume();
 
-            barCollector.push_back(resBar);
+            if(volume > 0 && iFilter == typeGetBarFilter::YES)
+                barCollector.push_back(resBar);
         }
     }
     else
@@ -102,6 +99,15 @@ bool DbManager::getBars(QDateTime startDate, QDateTime endDate, std::list<bar> &
     return success;
 
 }
+
+bool DbManager::getBarsByDay(int nDay, std::list<bar> &barCollector, typeGetBar iType, typeGetBarFilter iFilter = typeGetBarFilter::NO)
+{
+    const QString fmt = "yyyy/MM/dd hh:mm:ss";
+    QDateTime todayDate = QDateTime::currentDateTimeUtc();
+    QDateTime startDate = QDateTime::fromSecsSinceEpoch(todayDate.toSecsSinceEpoch() - (60*60*24*nDay)); // 60*60*24*nDay nDay giorni
+    this->getBars(startDate, todayDate, barCollector, iType, iFilter);
+}
+
 
 bool DbManager::addBar(bar ibar)
 {
@@ -133,6 +139,7 @@ bool DbManager::addBar(bar ibar)
 
    return success;
 }
+
 
 bool DbManager::addMultiBar(std::list<bar> ibar)
 {

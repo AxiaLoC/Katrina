@@ -13,6 +13,7 @@ private:
     void writeToFile();
     void getBars();
     void getBarsLimited();
+    void getSixMonthBar(int nDay);
     writerToFile *myLogFilePtr;
 
 public:

@@ -22,10 +22,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 
+
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
 
 void MainWindow::handleTesterButton()
 {
@@ -35,12 +37,14 @@ void MainWindow::handleTesterButton()
 
 }
 
+
 void MainWindow::handleStartButton()
 {
    // change the text
    ui->textBrowser->setText("Ciao sono Katrina \n");
 
 }
+
 
 void MainWindow::handleLoadFileButton()
 {

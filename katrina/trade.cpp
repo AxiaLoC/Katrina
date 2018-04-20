@@ -10,6 +10,7 @@ trade::trade()
     this->commission = 0;
 }
 
+
 trade::trade(std::string symbol, float ivolume, float ienter)
 {
     this->state = tradeState::OPEN;
@@ -17,6 +18,7 @@ trade::trade(std::string symbol, float ivolume, float ienter)
     this->symbol = symbol;
     this->volume = ivolume;
 }
+
 
 trade::trade(std::string symbol, float ivolume, float ienter, float iexit)
 {
@@ -27,7 +29,9 @@ trade::trade(std::string symbol, float ivolume, float ienter, float iexit)
     this->volume = ivolume;
 }
 
+
 void trade::addCommission(float icommission){this->commission = icommission;}
+
 
 void trade::closeTrade(float iexit)
 {
@@ -38,6 +42,7 @@ void trade::closeTrade(float iexit)
     }
 
 }
+
 
 float trade::getGain()
 {
@@ -50,6 +55,7 @@ float trade::getGain()
 
     return result;
 }
+
 
 bool trade::isWin()
 {
@@ -64,5 +70,8 @@ bool trade::isWin()
 
 }
 
+
 float trade::getEnter(){return this->enter;}
+
+
 float trade::getExit(){return this->exit;}

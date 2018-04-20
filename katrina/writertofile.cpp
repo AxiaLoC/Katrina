@@ -2,13 +2,16 @@
 
 writerToFile::writerToFile(QString filename) {myFilePtr = new QFile(filename);}
 
+
 writerToFile::writerToFile(QString filename, QString iString)
 {
     myFilePtr = new QFile(filename);
     this->write(iString);
 }
 
+
 writerToFile::~writerToFile(){delete myFilePtr;}
+
 
 void writerToFile::write(QString iString)
 {
@@ -19,8 +22,6 @@ void writerToFile::write(QString iString)
     }
     myFilePtr->close();
 }
-
-
 
 
 void writerToFile::clear()
