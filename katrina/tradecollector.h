@@ -15,6 +15,11 @@ public:
     tradecollector();
     void addTrade(trade iTrade);
     void printMyTrades();
+    float getTotalGain();
+    float getWinPercentage();
+    float getMaxLoss();
+    float getMaxGain();
+    float getDrawDawn();
 };
 
 #endif // TRADECOLLECTOR_H

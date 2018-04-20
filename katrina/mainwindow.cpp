@@ -44,8 +44,11 @@ void MainWindow::handleTesterButton()
     DbManager mydatabaseManager( QCoreApplication::applicationDirPath() + "/myMemory.db");
     mydatabaseManager.getBars();
 
+    writerToFile ciao("Data.txt");
+    ciao.clear();
 
-    //ui->textBrowser->setText(ui->textBrowser->toPlainText() + QCoreApplication::applicationDirPath());
+
+    ui->textBrowser->setText(ui->textBrowser->toPlainText() + QCoreApplication::applicationDirPath());
 
 }
 

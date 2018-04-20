@@ -8,6 +8,7 @@
 
 
 #include "trade.h"
+#include "writertofile.h"
 
 namespace Ui {
 class MainWindow;

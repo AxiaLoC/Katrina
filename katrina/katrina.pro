@@ -31,7 +31,8 @@ SOURCES += \
     dbmanager.cpp \
     loader.cpp \
     trade.cpp \
-    tradecollector.cpp
+    tradecollector.cpp \
+    writertofile.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,7 +40,8 @@ HEADERS += \
     dbmanager.h \
     loader.h \
     trade.h \
-    tradecollector.h
+    tradecollector.h \
+    writertofile.h
 
 FORMS += \
         mainwindow.ui
