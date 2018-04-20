@@ -55,9 +55,8 @@ bool DbManager::getBars()
 
 }
 
-bool DbManager::getBars(QDateTime startDate, QDateTime endDate, std::list<bar> *barCollector, typeGetBar iType)
+bool DbManager::getBars(QDateTime startDate, QDateTime endDate, std::list<bar> &barCollector, typeGetBar iType)
 {
-    std::list<bar> returnedBarCollector;
     QDateTime mydate;
 
     bool success = false;
@@ -79,8 +78,20 @@ bool DbManager::getBars(QDateTime startDate, QDateTime endDate, std::list<bar> *
 
         while (query.next()) {
             QString name = query.value(0).toString();
-            float salary = query.value(1).toFloat();
-            qDebug() << name << salary;
+            float open = query.value(1).toFloat();
+            float min = query.value(2).toFloat();
+            float max = query.value(3).toFloat();
+            float close = query.value(4).toFloat();
+            float volume = query.value(5).toFloat();
+            QDateTime mydatetime = query.value(6).toDateTime();
+
+            bar resBar("AAA", open, min, max, close, volume, mydatetime);
+
+            //qDebug() << name << " " << open << " " << volume << mydatetime.toString();
+            //bar(std::string isymbol, float iopen, float imin, float imax, float iclose, float ivolume, QDateTime imydate);
+            //qDebug() << resBar.getVolume();
+
+            barCollector.push_back(resBar);
         }
     }
     else
@@ -103,7 +114,7 @@ bool DbManager::addBar(bar ibar)
    query.bindValue(":max", ibar.getMax());
    query.bindValue(":min", ibar.getMin());
    query.bindValue(":volume", ibar.getVolume());
-   query.bindValue(":symbol", QString::fromStdString(ibar.getSymbol()));
+   query.bindValue(":symbol", ibar.getSymbol());
 
 
    //qDebug() << ibar.getMydate().toString("yyyy-MM-dd hh:mm:ss");
@@ -140,7 +151,7 @@ bool DbManager::addMultiBar(std::list<bar> ibar)
         query.bindValue(":max", barIterator->getMax());
         query.bindValue(":min", barIterator->getMin());
         query.bindValue(":volume", barIterator->getVolume());
-        query.bindValue(":symbol", QString::fromStdString(barIterator->getSymbol()));
+        query.bindValue(":symbol", barIterator->getSymbol());
 
 
         //qDebug() << ibar.getMydate().toString("yyyy-MM-dd hh:mm:ss");

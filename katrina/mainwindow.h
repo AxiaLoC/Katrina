@@ -3,12 +3,11 @@
 
 #include <QMainWindow>
 #include <QFileDialog>
+
+#include "tester.h"
 #include "dbmanager.h"
 #include "loader.h"
-
-
 #include "trade.h"
-#include "writertofile.h"
 
 namespace Ui {
 class MainWindow;
@@ -27,7 +26,6 @@ private:
     void handleStartButton();
     void handleLoadFileButton();
     void handleTesterButton();
-    bool katrinaState = false;
 };
 
 #endif // MAINWINDOW_H

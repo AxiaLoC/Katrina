@@ -1,6 +1,6 @@
 #include "bar.h"
 
-bar::bar(std::string isymbol, float iopen, float imin, float imax, float iclose, float ivolume, QDateTime imydate)
+bar::bar(QString isymbol, float iopen, float imin, float imax, float iclose, float ivolume, QDateTime imydate)
 {
     this->open = this->round(iopen);
     this->min = this->round(imin);
@@ -65,7 +65,7 @@ float bar::getVolume(){return this->volume;}
 
 QDateTime bar::getMydate(){return this->mydate;}
 
-std::string bar::getSymbol(){return this->symbol;}
+QString bar::getSymbol(){return this->symbol;}
 
 float bar::round(float var)
 {

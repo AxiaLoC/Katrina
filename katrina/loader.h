@@ -3,7 +3,7 @@
 
 #include "dbmanager.h"
 #include "bar.h"
-
+#include<qcoreapplication.h>
 
 
 class loader

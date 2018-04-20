@@ -8,7 +8,7 @@ class bar
 {
 private:
 
-    std::string symbol;
+    QString symbol;
     float min;
     float max;
     float open;
@@ -18,14 +18,14 @@ private:
     float round(float var);
 
 public:
-    bar(std::string isymbol, float iopen, float imin, float imax, float iclose, float ivolume, QDateTime imydate);
+    bar(QString isymbol, float iopen, float imin, float imax, float iclose, float ivolume, QDateTime imydate);
     float getOpen();
     float getClose();
     float getMin();
     float getMax();
     float getVolume();
     QDateTime getMydate();
-    std::string getSymbol();
+    QString getSymbol();
     void addFollowBar(bar ibar);
     void addPreviousBar(bar ibar);
 

@@ -32,7 +32,7 @@ void loader::dukascopyLoadData()
 
     int a = 0;
 
-    DbManager mydatabaseManager("C:/Users/noteC/Desktop/myMemory.db");
+    DbManager mydatabaseManager(QCoreApplication::applicationDirPath() + "/myMemory.db");
 
     std::list<bar> myBarList;
 
@@ -47,7 +47,7 @@ void loader::dukascopyLoadData()
         if(!readedLine.contains("Open"))
         {
             firstColumn.append(readedLine.split(","));
-            //qDebug() << readedLine;
+
             QString open = QString();
             open = firstColumn.at(OPEN_POSITION);
 
@@ -78,17 +78,7 @@ void loader::dukascopyLoadData()
 
             //qDebug() << date;
         }
-
         a++;
-
-//        int count = firstColumn.count();
-//        QString str = QString();
-//        for(int i=0;i<count;i++)
-//        {
-//            str = firstColumn.at(i);
-//            qDebug() << str;
-//        }
-
     }
 
     mydatabaseManager.addMultiBar(myBarList);

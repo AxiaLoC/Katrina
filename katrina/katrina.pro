@@ -32,7 +32,8 @@ SOURCES += \
     loader.cpp \
     trade.cpp \
     tradecollector.cpp \
-    writertofile.cpp
+    writertofile.cpp \
+    tester.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -41,7 +42,8 @@ HEADERS += \
     loader.h \
     trade.h \
     tradecollector.h \
-    writertofile.h
+    writertofile.h \
+    tester.h
 
 FORMS += \
         mainwindow.ui
