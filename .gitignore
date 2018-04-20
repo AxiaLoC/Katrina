@@ -1,2 +1,13 @@
 
 katrina/bar.cpp
+*.stash
+*.o
+build-katrina-Desktop_Qt_5_9_3_MinGW_32bit-Debug/debug/katrina.exe
+build-katrina-Desktop_Qt_5_9_3_MinGW_32bit-Debug/debug/moc_mainwindow.cpp
+build-katrina-Desktop_Qt_5_9_3_MinGW_32bit-Debug/debug/moc_predefs.h
+build-katrina-Desktop_Qt_5_9_3_MinGW_32bit-Debug/debug/myMemory.db
+build-katrina-Desktop_Qt_5_9_3_MinGW_32bit-Debug/debugmyMemory.db
+build-katrina-Desktop_Qt_5_9_3_MinGW_32bit-Debug/Makefile
+build-katrina-Desktop_Qt_5_9_3_MinGW_32bit-Debug/Makefile.Debug
+build-katrina-Desktop_Qt_5_9_3_MinGW_32bit-Debug/Makefile.Release
+build-katrina-Desktop_Qt_5_9_3_MinGW_32bit-Debug/ui_mainwindow.h
